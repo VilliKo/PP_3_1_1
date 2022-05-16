@@ -25,7 +25,12 @@
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.email}"></td>
                 <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>
-                <td><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>
+                <td>
+                    <form action="#" th:action="@{user-delete/{id}(id=${user.id})}" th:method="delete" >
+                        <input type="hidden" name="_method" value="Delete" />
+                        <button type="submit" id="submitButtonDelete">Delete</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
